@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-
+#include <fstream>
 
 namespace Service 
 {
@@ -31,7 +31,7 @@ namespace Service
 
 namespace Objects 
 {
-    float Cube[] = {
+    inline float Cube[] = {
         -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
          0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
          0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
