@@ -10,12 +10,12 @@ WindowManager::WindowManager(int width, int height, const std::string& windowNam
 , m_sWindowName(windowName)
 , m_iOpenGLVersion(3)
 {
-   
+    Utility::Print("Window Creation");
 }
 
 WindowManager::~WindowManager()
 {
-
+    Utility::Print("Window Closed");
 }
 
 void WindowManager::Init()
@@ -24,6 +24,10 @@ void WindowManager::Init()
     {
         
         Utility::Print("You are Using Immediate Mode");
+    }
+    else
+    {
+        Utility::Print("You are Using Core Mode");
     }
     
     if( !glfwInit())
@@ -40,7 +44,7 @@ void WindowManager::framebuffersize_callback(GLFWwindow* window, int width, int 
     glViewport(0,0, width, height);
 }
 
-void WindowManager::createWindow()
+void WindowManager::Setup()
 {
     Init();
     m_pWindow = glfwCreateWindow(m_iWidth, m_iHeight, m_sWindowName.c_str(), NULL, NULL);
@@ -57,17 +61,34 @@ void WindowManager::createWindow()
     {
         Utility::Print("GLAD Failed");
     }
+}
+
+
+void WindowManager::createWindow()
+{
+    Setup();
     glfwSetFramebufferSizeCallback(m_pWindow, framebuffersize_callback);
+
+    GeometricShapes * oGeometricShapes = new GeometricShapes();
+    
+    VertexObjects oVertexObjects(oGeometricShapes->Cube, Objects::CubeSize);
 
     while (!glfwWindowShouldClose(m_pWindow))
     {
         glClearColor(0.23f, 0.1f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
+        
+
+        glBindVertexArray(oVertexObjects.GetVAO());
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindVertexArray(0);
+
         glfwPollEvents();
         glfwSwapBuffers(m_pWindow);
     }
     
+    delete oGeometricShapes ;
     glfwTerminate();
     
 }

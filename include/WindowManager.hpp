@@ -3,8 +3,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <iostream>
-#include <string>
+#include "VertexObjects.hpp"
 #include "utils.hpp"
 
 class WindowManager
@@ -20,6 +19,7 @@ public:
 private:
     void Init();
     static void framebuffersize_callback(GLFWwindow*, int, int) ;
+    void Setup();
 private :
     int m_iWidth;
     int m_iHeight;

@@ -8,7 +8,7 @@ Game::Game(int width, int height, const std::string& windowName)
 
 Game::~Game()
 {
-
+    Service::Utility::Print("GAME ENDED");
 }
 
 void Game::Render()

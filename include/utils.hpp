@@ -31,9 +31,10 @@ namespace Service
 
 namespace Objects 
 {
-    struct Object
+    const int CubeSize = 288;
+    struct GeometricShapes
     {
-        float Cube[288] = {
+        float Cube[CubeSize] = {
     //  |      POSITIONS  |   |    COLORS    |  |TEXTURES|
         -0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
          0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
@@ -77,7 +78,7 @@ namespace Objects
         -0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
         -0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f
         };
-    };
+    } ;
     
 
 }
