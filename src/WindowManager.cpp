@@ -1,5 +1,7 @@
 #include "WindowManager.hpp"
 
+using namespace Service;
+using namespace Objects;
 
 WindowManager::WindowManager(int width, int height, const std::string& windowName)
 : m_iWidth(width)
@@ -20,12 +22,13 @@ void WindowManager::Init()
 {
     if (m_iOpenGLVersion < 3)
     {
-        std::cout << "You are Using Immediate Mode" << std::endl;
+        
+        Utility::Print("You are Using Immediate Mode");
     }
     
     if( !glfwInit())
     {
-        std::cout << "OpenGL FrameWork Failed To Initialize" << std::endl;
+        Utility::Print("OpenGL FrameWork Failed To Initialize");
     }
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, m_iOpenGLVersion);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, m_iOpenGLVersion);
@@ -44,7 +47,7 @@ void WindowManager::createWindow()
 
     if (!m_pWindow)
     {
-        std::cout << "Window Creation Failed" << std::endl;
+        Utility::Print("Window Creation Failed");
     }
     
     glfwMakeContextCurrent(m_pWindow);
@@ -52,7 +55,7 @@ void WindowManager::createWindow()
  
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-        std::cout << "GLAD Failed" << std::endl;
+        Utility::Print("GLAD Failed");
     }
     glfwSetFramebufferSizeCallback(m_pWindow, framebuffersize_callback);
 

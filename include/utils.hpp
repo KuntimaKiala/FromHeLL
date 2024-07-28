@@ -31,7 +31,9 @@ namespace Service
 
 namespace Objects 
 {
-    inline float Cube[] = {
+    struct Object
+    {
+        float Cube[180] = {
         -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
          0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
          0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
@@ -74,6 +76,8 @@ namespace Objects
         -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
         -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
     };
+    };
+    
 
 }
 #endif
