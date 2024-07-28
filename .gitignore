@@ -3,3 +3,6 @@ build
 .json
 cache 
 cmake
+json
+.vscode
+vscode

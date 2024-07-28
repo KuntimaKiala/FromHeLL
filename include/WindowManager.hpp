@@ -11,9 +11,10 @@ class WindowManager
 
     
 public:
-    WindowManager() = delete;
-    explicit WindowManager(int width=500, int height=500, const std::string& windowName ="FromHeLL");
-    ~WindowManager();
+    
+    explicit WindowManager(int width, int height, const std::string& windowName);
+    virtual ~WindowManager();
+    void     createWindow();
 
 private:
     void Init();

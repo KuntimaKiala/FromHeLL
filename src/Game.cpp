@@ -1,9 +1,9 @@
 #include "Game.hpp"
 
-Game::Game(int width=500, int height=500, const std::string& windowName ="FromHeLL")
+Game::Game(int width, int height, const std::string& windowName)
 : WindowManager(width, height, windowName)
 {
-
+    std::cout << "Game Launch" <<std::endl;
 }
 
 Game::~Game()
@@ -12,6 +12,7 @@ Game::~Game()
 }
 
 void Game::Render()
-{
-
+{       
+        std::cout << "Rendering" <<std::endl;
+        createWindow();
 }
