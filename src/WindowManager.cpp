@@ -35,6 +35,12 @@ void WindowManager::createWindow()
 {
     Init();
     m_pWindow = glfwCreateWindow(m_iWidth, m_iHeight, m_sWindowName.c_str(), NULL, NULL);
+
+    if (!m_pWindow)
+    {
+        std::cout << "Window Creation Failed" << std::endl;
+    }
+    
     glfwMakeContextCurrent(m_pWindow);
     
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
